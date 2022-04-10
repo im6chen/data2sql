@@ -85,5 +85,5 @@ func main() {
 
 	fmt.Println(count)
 	// fmt.Printf("%T", rows[4]) //string[]格式
-	//这是main分支哦,搞清楚!
+	// 这是test分支喏.
 }
