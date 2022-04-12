@@ -20,7 +20,7 @@ func main() {
 
 	//数据库操作
 	res, err := conn.Exec(
-		`create table if not exists car2022(
+		`create table if not exists 'car2022'(
 			车型ID		INT,
 			车型		VARCHAR(30),
 			燃料类别	VARCHAR(10),
@@ -42,7 +42,7 @@ func main() {
 	}
 
 	log.Println("RES:::", res, "\n", "err:::", err)
-	sql, err := conn.Prepare("INSERT INTO car2022 (`车型ID`,`车型`,`燃料类别`,`品牌`,`级别`,`合资自主`,`国别`,`整理品牌`,`大区`,`省份`,`城市级别`,`城市`,`2022y1`,`2022y2`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)")
+	sql, err := conn.Prepare("INSERT INTO 'car2022' (`车型ID`,`车型`,`燃料类别`,`品牌`,`级别`,`合资自主`,`国别`,`整理品牌`,`大区`,`省份`,`城市级别`,`城市`,`2022y1`,`2022y2`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)")
 	log.Println("SQL:::", sql, "\n", "err:::", err)
 	defer sql.Close()
 
@@ -60,7 +60,7 @@ func main() {
 	count := 0
 	fmt.Println(count)
 	for _, row := range rows[1:] {
-		res, err := sql.Exec(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11], row[12], row[13], row[14], row[15], row[16], row[17], row[18], row[19], row[20], row[21], row[22], row[23], row[24]) //string格式
+		res, err := sql.Exec(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11], row[12], row[13]) //string格式
 		if err != nil {
 			log.Println(res, err)
 		} else {
