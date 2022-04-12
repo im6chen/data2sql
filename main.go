@@ -20,7 +20,7 @@ func main() {
 
 	//数据库操作
 	res, err := conn.Exec(
-		`create table if not exists 'car2022'(
+		`create table if not exists 'car2021'(
 			车型ID		INT,
 			车型		VARCHAR(30),
 			燃料类别	VARCHAR(10),
@@ -85,7 +85,7 @@ func main() {
 	defer sql.Close()
 
 	// 读取excel
-	f, err := excelize.OpenFile("./excel/202202m.xlsx")
+	f, err := excelize.OpenFile("./excel/2021y.xlsx")
 	if err != nil {
 		fmt.Println("读取excel错误:", err)
 		return
