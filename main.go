@@ -20,7 +20,7 @@ func main() {
 
 	//数据库操作
 	res, err := conn.Exec(
-		`create table if not exists 'car2021'(
+		`create table if not exists car2021(
 			车型ID		INT,
 			车型		VARCHAR(30),
 			燃料类别	VARCHAR(10),
@@ -53,34 +53,7 @@ func main() {
 	}
 
 	log.Println("RES:::", res, "\n", "err:::", err)
-	sql, err := conn.Prepare(
-		`INSERT INTO 'car2021' (
-			'车型ID',
-			'车型',
-			'燃料类别',
-			'品牌',
-			'级别',
-			'合资自主',
-			'国别',
-			'整理品牌',
-			'大区',
-			'省份',
-			'城市级别',
-			'城市',
-			'2021y1',
-			'2021y2',
-			'2021y3',
-			'2021y4',
-			'2021y5',
-			'2021y6',
-			'2021y7',
-			'2021y8',
-			'2021y9',
-			'2021y10',
-			'2021y11',
-			'2021y12',
-			'2021y')
-			VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`)
+	sql, err := conn.Prepare("INSERT INTO car2021 ( `车型ID`,`车型`, `燃料类别`, `品牌`, `级别`, `合资自主`, `国别`, `整理品牌`, `大区`, `省份`, `城市级别`, `城市`, `2021y1`, `2021y2`, `2021y3`, `2021y4`, `2021y5`, `2021y6`, `2021y7`, `2021y8`, `2021y9`, `2021y10`, `2021y11`, `2021y12`, `2021y`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")
 	log.Println("SQL:::", sql, "\n", "err:::", err)
 	defer sql.Close()
 
@@ -102,7 +75,7 @@ func main() {
 		if err != nil {
 			log.Println(res, err)
 		} else {
-			count += 1
+			count++
 			log.Println("success")
 		}
 	}
