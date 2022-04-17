@@ -22,17 +22,17 @@ func main() {
 	res, err := conn.Exec(
 		`create table if not exists car2021(
 			车型ID		INT,
-			车型		VARCHAR(30),
+			车型		  VARCHAR(30),
 			燃料类别	VARCHAR(10),
-			品牌		VARCHAR(10),
-			级别		VARCHAR(10),
+			品牌		  VARCHAR(10),
+			级别		  VARCHAR(10),
 			合资自主	VARCHAR(10),
-			国别		VARCHAR(10),
+			国别		  VARCHAR(10),
 			整理品牌	VARCHAR(16),
-			大区		VARCHAR(10),
-			省份		VARCHAR(10),
+			大区		  VARCHAR(10),
+			省份		  VARCHAR(10),
 			城市级别	VARCHAR(3),
-			城市		VARCHAR(10),
+			城市		  VARCHAR(10),
 			2021y1		INT,
 			2021y2		INT,
 			2021y3		INT,
@@ -45,7 +45,7 @@ func main() {
 			2021y10		INT,
 			2021y11		INT,
 			2021y12		INT,
-			2021y		INT
+			2021y		  INT
 		);`,
 	)
 	if err != nil {
